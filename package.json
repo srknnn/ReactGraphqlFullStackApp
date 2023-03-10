@@ -1,0 +1,39 @@
+{
+  "name": "reactgraphqlfullstackapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:ts": "ts-node src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srknnn/ReactGraphqlFullStackApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srknnn/ReactGraphqlFullStackApp/issues"
+  },
+  "homepage": "https://github.com/srknnn/ReactGraphqlFullStackApp#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.12.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "15.3.0",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.10.0",
+    "type-graphql": "^1.1.1",
+    "typeorm": "^0.3.12",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.1"
+  }
+}

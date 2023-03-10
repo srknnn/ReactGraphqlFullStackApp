@@ -1,0 +1,17 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: postgres1234
+      POSTGRES_DB: todoDb
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 5050:80
