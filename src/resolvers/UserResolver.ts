@@ -20,7 +20,7 @@ export class UserResolver {
 
   @Mutation(() => String)
   async login(
-    @Arg("email") email: string, //
+    @Arg("email") email: string,
     @Arg("password") password: string
   ): Promise<string> {
     const user = await User.findOne({ where: { email: email } });

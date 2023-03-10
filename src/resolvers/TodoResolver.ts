@@ -6,7 +6,6 @@ export class TodoResolver {
   // @Authorized()
   @Mutation(() => Todo)
   async createTodo(@Arg("title") title: string): Promise<Todo> {
-    console.log("Serkaaaaaan");
     console.log(title);
     const todo = Todo.create({ title });
     await todo.save();
