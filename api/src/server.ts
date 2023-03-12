@@ -3,7 +3,6 @@ import express from "express";
 import { ApolloServer, Config, ExpressContext } from "apollo-server-express";
 import { DataSource } from "typeorm";
 import { createSchema } from "./schema";
-import { authChecker } from "./authChecker";
 
 const PORT = 4000;
 
@@ -23,7 +22,6 @@ const PORT = 4000;
     context: ({ req }) => ({ req }),
     introspection: true,
     playground: true,
-    authChecker,
   } as Config<ExpressContext>);
 
   await server.start();

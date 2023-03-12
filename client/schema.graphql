@@ -1,0 +1,25 @@
+type Todo {
+  id: ID!
+  title: String!
+  completed: Boolean!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Query {
+  todos: [Todo!]!
+  user(id: ID!): User!
+}
+
+type Mutation {
+  createTodo(title: String!): Todo!
+  markTodoCompleted(id: ID!): Todo!
+  markTodoUncompleted(id: ID!): Todo!
+  deleteTodo(id: ID!): Boolean!
+  signUp(name: String!, email: String!, password: String!): User!
+  login(email: String!, password: String!): String!
+}

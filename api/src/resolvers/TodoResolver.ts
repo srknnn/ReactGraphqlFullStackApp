@@ -3,7 +3,7 @@ import { Todo } from "../entities/Todo";
 
 @Resolver()
 export class TodoResolver {
-  // @Authorized()
+  @Authorized()
   @Mutation(() => Todo)
   async createTodo(@Arg("title") title: string): Promise<Todo> {
     console.log(title);
@@ -12,7 +12,7 @@ export class TodoResolver {
     return todo;
   }
 
-  // @Authorized()
+  @Authorized()
   @Mutation(() => Boolean)
   async markTodoCompleted(@Arg("id") id: number): Promise<boolean> {
     const todo = await Todo.findOne({ where: { id: id } });
@@ -24,7 +24,7 @@ export class TodoResolver {
     return true;
   }
 
-  // @Authorized()
+  @Authorized()
   @Mutation(() => Boolean)
   async markTodoUncompleted(@Arg("id") id: number): Promise<boolean> {
     const todo = await Todo.findOne({ where: { id: id } });
@@ -36,7 +36,7 @@ export class TodoResolver {
     return true;
   }
 
-  // @Authorized()
+  @Authorized()
   @Mutation(() => Boolean)
   async deleteTodo(@Arg("id") id: number): Promise<boolean> {
     const todo = await Todo.findOne({ where: { id: id } });
@@ -47,7 +47,7 @@ export class TodoResolver {
     return true;
   }
 
-  // @Authorized()
+  @Authorized()
   @Query(() => [Todo])
   async listTodos(): Promise<Todo[]> {
     return await Todo.find();
