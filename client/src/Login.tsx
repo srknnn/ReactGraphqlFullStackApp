@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Input, Button, message } from "antd";
 import { ApolloError } from "@apollo/client";
 import { useLoginMutation } from "./generated/graphql";
@@ -13,7 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loginMutation, { data, loading, error }] = useLoginMutation({
+  const [loginMutation, { data, loading }] = useLoginMutation({
     onCompleted: (data) => {
       updateLoginToken(data.login);
       message.success("Successfully logged in!");
@@ -25,9 +25,9 @@ const Login = () => {
     },
   });
 
-  useEffect(() => {}, [data, loginToken]);
+  // useEffect(() => {}, [data, loginToken]);
 
-  const onFinish = async (values: any) => {
+  const onFinish = async () => {
     loginMutation({ variables: { email, password } });
   };
 

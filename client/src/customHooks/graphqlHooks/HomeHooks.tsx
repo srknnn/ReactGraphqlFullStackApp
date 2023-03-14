@@ -5,7 +5,6 @@ import {
   ListTodosQuery,
   useCreateTodoMutation,
   useDeleteTodoMutation,
-  useListTodosQuery,
   useMarkTodoCompletedMutation,
   useMarkTodoUncompletedMutation,
 } from "../../generated/graphql";
@@ -34,7 +33,7 @@ export function useCreateTodo(prob: HookProb) {
         authorization: prob.token,
       },
     },
-    onCompleted: (Data) => {
+    onCompleted: () => {
       message.success("New record has been created!");
       if (prob.setIsModalVisible) prob.setIsModalVisible(false);
       if (prob.refetch) prob.refetch();
@@ -57,7 +56,7 @@ export function useMarkTodoCompleted(prob: HookProb) {
         authorization: prob.token,
       },
     },
-    onCompleted: (data) => {
+    onCompleted: () => {
       message.success("Selected record has been completed!");
       if (prob.refetch) prob.refetch();
     },
@@ -115,7 +114,7 @@ export function useDeleteTodo(prob: HookProb) {
         authorization: prob.token,
       },
     },
-    onCompleted: (data) => {
+    onCompleted: () => {
       message.success("Selected record has been deleted!");
       if (prob.refetch) prob.refetch();
     },

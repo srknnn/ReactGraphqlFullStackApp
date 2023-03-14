@@ -1,20 +1,12 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { UserOutlined } from "@ant-design/icons";
 import "./App.css";
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { Avatar, Dropdown, Layout } from "antd";
-import SignUp from "./SignUp";
-import Login from "./Login";
+import React from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { Layout } from "antd";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginRoter from "./components/LoginRouter";
 import { LoginTokenProvider } from "./context/TokenContext";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 const { Header, Content } = Layout;
 
