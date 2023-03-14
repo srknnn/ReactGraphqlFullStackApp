@@ -2,7 +2,7 @@
 
 This is the backend API of the React GraphQL Full Stack App. It is built using Node.js, Express.js, GraphQL, and TypeORM. It provides an API for creating, reading, updating, and deleting todos, as well as authentication and authorization using JSON Web Tokens (JWTs).
 
-## Installation
+## Prerequisites
 
 Node.js and npm installed
 Docker installed
