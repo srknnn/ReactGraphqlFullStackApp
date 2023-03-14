@@ -32,7 +32,6 @@ export class UserResolver {
       throw new Error("Invalid login credentials");
     }
     const token = jwt.sign({ userId: user.id }, SECRET);
-    console.log("token", token);
     return token;
   }
 }

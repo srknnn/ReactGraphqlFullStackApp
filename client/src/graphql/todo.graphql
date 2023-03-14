@@ -1,0 +1,27 @@
+query ListTodos {
+  listTodos {
+    id
+    title
+    completed
+  }
+}
+
+mutation CreateTodo($title: String!) {
+  createTodo(title: $title) {
+    id
+    title
+    completed
+  }
+}
+
+mutation MarkTodoCompleted($markTodoCompletedId: ID!) {
+  markTodoCompleted(id: $markTodoCompletedId)
+}
+
+mutation MarkTodoUncompleted($markTodoUncompletedId: ID!) {
+  markTodoUncompleted(id: $markTodoUncompletedId)
+}
+
+mutation DeleteTodo($deleteTodoId: ID!) {
+  deleteTodo(id: $deleteTodoId)
+}

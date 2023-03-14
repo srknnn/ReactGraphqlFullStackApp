@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Form, Input, Button, message, Typography } from "antd";
-import { useMutation } from "@apollo/client";
+import { Form, Input, Button, message } from "antd";
 import { useSignUpMutation } from "./generated/graphql";
 import { useNavigate } from "react-router-dom";
-
-const { Title } = Typography;
+import "./auth.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -32,51 +30,62 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <Form
-        {...layout}
-        name="signup"
-        onFinish={onFinish}
-        autoComplete="off"
-        style={{ maxWidth: "500px", margin: "0 auto" }}
-      >
-        <Form.Item
-          label="Name"
-          name="name"
-          rules={[{ required: true, message: "Please input your name!" }]}
-        >
-          <Input value={name} onChange={(e) => setName(e.target.value)} />
-        </Form.Item>
-
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[
-            { required: true, message: "Please input your email!" },
-            { type: "email", message: "Please input a valid email!" },
-          ]}
-        >
-          <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-        </Form.Item>
-
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+    <div className="login-page">
+      <div className="login-box">
+        <div className="illustration-wrapper">
+          <img
+            src="https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700"
+            alt="Login"
           />
-        </Form.Item>
+        </div>
+        <Form
+          name="login-form"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+        >
+          <p className="form-title">Sign Up</p>
+          <p>Sign Up</p>
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: "Please input your name!" }]}
+          >
+            <Input value={name} onChange={(e) => setName(e.target.value)} />
+          </Form.Item>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              { required: true, message: "Please input your email!" },
+              { type: "email", message: "Please input a valid email!" },
+            ]}
+          >
+            <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Item>
 
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit" loading={loading}>
-            Sign Up
-          </Button>
-        </Form.Item>
-      </Form>
-    </>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+              loading={loading}
+            >
+              Sign Up
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </div>
   );
 };
 

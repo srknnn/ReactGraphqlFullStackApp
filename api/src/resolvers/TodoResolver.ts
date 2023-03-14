@@ -1,4 +1,12 @@
-import { Resolver, Query, Mutation, Arg, Authorized } from "type-graphql";
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Arg,
+  Authorized,
+  Int,
+  ID,
+} from "type-graphql";
 import { Todo } from "../entities/Todo";
 
 @Resolver()
@@ -6,7 +14,6 @@ export class TodoResolver {
   @Authorized()
   @Mutation(() => Todo)
   async createTodo(@Arg("title") title: string): Promise<Todo> {
-    console.log(title);
     const todo = Todo.create({ title });
     await todo.save();
     return todo;
@@ -14,7 +21,7 @@ export class TodoResolver {
 
   @Authorized()
   @Mutation(() => Boolean)
-  async markTodoCompleted(@Arg("id") id: number): Promise<boolean> {
+  async markTodoCompleted(@Arg("id", () => ID!) id: number): Promise<boolean> {
     const todo = await Todo.findOne({ where: { id: id } });
     if (!todo) {
       return false;
@@ -26,7 +33,9 @@ export class TodoResolver {
 
   @Authorized()
   @Mutation(() => Boolean)
-  async markTodoUncompleted(@Arg("id") id: number): Promise<boolean> {
+  async markTodoUncompleted(
+    @Arg("id", () => ID!) id: number
+  ): Promise<boolean> {
     const todo = await Todo.findOne({ where: { id: id } });
     if (!todo) {
       return false;
@@ -38,7 +47,7 @@ export class TodoResolver {
 
   @Authorized()
   @Mutation(() => Boolean)
-  async deleteTodo(@Arg("id") id: number): Promise<boolean> {
+  async deleteTodo(@Arg("id", () => ID!) id: number): Promise<boolean> {
     const todo = await Todo.findOne({ where: { id: id } });
     if (!todo) {
       return false;

@@ -6,6 +6,7 @@
   "scripts": {
     "start:ts": "ts-node src/server.ts",
     "start": "node dist/server.js",
+    "docker:start": "docker compose up",
     "build": "tsc"
   },
   "repository": {

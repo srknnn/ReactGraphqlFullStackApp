@@ -11,14 +11,14 @@ type User {
 }
 
 type Query {
-  todos: [Todo!]!
+  listTodos: [Todo!]!
   user(id: ID!): User!
 }
 
 type Mutation {
   createTodo(title: String!): Todo!
-  markTodoCompleted(id: ID!): Todo!
-  markTodoUncompleted(id: ID!): Todo!
+  markTodoCompleted(id: ID!): Boolean!
+  markTodoUncompleted(id: ID!): Boolean!
   deleteTodo(id: ID!): Boolean!
   signUp(name: String!, email: String!, password: String!): User!
   login(email: String!, password: String!): String!

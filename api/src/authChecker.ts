@@ -9,7 +9,6 @@ export const authChecker: AuthChecker<{
   user?: User;
 }> = async ({ context }) => {
   const token = context.req.headers["authorization"];
-  console.log("context", context);
   if (!token) {
     return false;
   }
